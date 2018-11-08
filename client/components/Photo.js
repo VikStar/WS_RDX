@@ -28,7 +28,7 @@ export default class Photo extends React.Component {
 					<p>{post.caption}</p>
 
 					<div className="control-buttons">
-						<button className="likes">&hearts; {post.likes}</button>
+						<button onClick={() => this.props.increment(i)} className="likes">&hearts; {post.likes}</button>
 
 						<Link className="button" to={`/view/${post.code}`}>
 							<span className="comment-count">
