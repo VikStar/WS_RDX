@@ -16,6 +16,13 @@ const defaultState = {
 
 const store = createStore(rootReducer, defaultState);
 
+if (module.hot) {
+	module.hot.accept('./reducers/', () => {
+		const nextRootReducer = require('./reducers/index').default;
+		store.replaceReducer(nextRootReducer);
+	})
+}
+
 export const history = syncHistoryWithStore(browserHistory, store);
 
 export default store
